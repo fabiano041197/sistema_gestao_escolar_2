@@ -6,29 +6,28 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="msapplication-tap-highlight" content="no">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
-        <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+        <meta name="keywords" content="SISTEMA, educacao, gestao, responsivo, escolas">
         <title>Sistema de Gestao Escolar Prototipo</title>
-        <link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
-        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-152x152.png">
+        <link rel="icon" href="images/new_logo.png" sizes="32x32">
         <meta name="msapplication-TileColor" content="#00bcd4">
-        <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
         <link href="layout/materialize_custom.css" type="text/css" rel="stylesheet">
         <link href="layout/estilo_externo.css" type="text/css" rel="stylesheet">
         <link href="layout/custom.css" type="text/css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
     </head>
     <body>
-        <!-- Start Page Loading -->
+        <!-- CONTEUDO PARA PRE CARREGAMENTO DE PAGINA 
         <div id="loader-wrapper">
             <div id="loader"></div>
             <div class="loader-section section-left"></div>
             <div class="loader-section section-right"></div>
-        </div>
-        <!-- End Page Loading -->
+        </div>-->
+        <!-- FIM DO CONTEUDO PARA CARREGAMENTO DE PAGINA -->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
-        <!-- START HEADER -->
+        <!-- INICIO DO CABECALHO -->
         <header id="header" class="page-topbar">
-            <!-- start header nav-->
+            <!--INICIO DA BARRA DE NAVEGACAO-->
             <div class="navbar-fixed">
                 <nav class="navbar-color">
                     <div class="nav-wrapper">
@@ -229,19 +228,19 @@
                                 </li>
                                 <li class="bold">
                                     <a class="collapsible-header waves-effect waves-cyan">
-                                        <i class="material-icons">dvr</i>
+                                        <i class="material-icons">edit</i>
                                         <span class="nav-text">Cadastro</span>
                                     </a>
                                     <div class="collapsible-body">
                                         <ul>
                                             <li>
-                                                <a class="modal-trigger" href="#modal1">
+                                                <a class="modal-trigger" onclick="form_request('cad_entidades')" href="#modal1">
                                                     <i class="material-icons">keyboard_arrow_right</i>
                                                     <span>Entidades</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="modal-trigger" onclick="teste()" href="#modal1">
+                                                <a class="modal-trigger" onclick="form_request('cad_escolas')" href="#modal1">
                                                     <i class="material-icons">keyboard_arrow_right</i>
                                                     <span>Escolas</span>
                                                 </a>
@@ -264,10 +263,69 @@
                                                     <span>Pais e Responsaveis</span>
                                                 </a>
                                             </li>
+                                            <li class="no-padding">
+                                                <ul class="collapsible" data-collapsible="accordion">
+                                                    <li class="bold">
+                                                        <a class="collapsible-header  waves-effect waves-cyan">
+                                                            <i class="material-icons">photo_filter</i>
+                                                            <span class="nav-text">Cadastros Globais</span>
+                                                        </a>
+                                                        <div class="collapsible-body">
+                                                            <ul class="collapsible" data-collapsible="accordion">
+                                                                <li>
+                                                                    <a href="">
+                                                                        <i class="material-icons">keyboard_arrow_right</i>
+                                                                        <span>Cadastro de Municipios</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="">
+                                                                        <i class="material-icons">keyboard_arrow_right</i>
+                                                                        <span>Cadastro de Estados</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="">
+                                                                        <i class="material-icons">keyboard_arrow_right</i>
+                                                                        <span>Cadastro de Religioes</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
-
+                                <li class="bold">
+                                    <a class="collapsible-header waves-effect waves-cyan">
+                                        <i class="material-icons">dvr</i>
+                                        <span class="nav-text">Gestao Educacional</span>
+                                    </a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+                                                <a class="modal-trigger" onclick="form_request('cad_entidades')" href="#modal1">
+                                                    <i class="material-icons">keyboard_arrow_right</i>
+                                                    <span>Disciplinas</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="modal-trigger" onclick="form_request('cad_escolas')" href="#modal1">
+                                                    <i class="material-icons">keyboard_arrow_right</i>
+                                                    <span>Cursos</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../fixed-menu/">
+                                                    <i class="material-icons">keyboard_arrow_right</i>
+                                                    <span>Matriz</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
                         <li class="li-hover">
@@ -402,6 +460,9 @@
                         </div>
                     </div>
                 </div>
+                <div id="jsGrid"></div>
+
+
 
                 <!-- END CONTENT -->
                 <!-- START RIGHT SIDEBAR NAV-->
@@ -698,21 +759,22 @@
                         <span>Rodape aqui
                             <script type="text/javascript">
                                 document.write(new Date().getFullYear());
-                            </script> <a class="grey-text text-lighten-2" href=t" target="_blank">Link da pagina da empresa</a> textp span</span>
+                            </script> 
+                            <a class="grey-text text-lighten-2" href="" target="_blank">Link da pagina da empresa</a> textp span</span>
                         <span class="right hide-on-small-only">Prototipo criado por Fabiano Gabardo Lemos</span>
                     </div>
                 </div>
             </div>
         </footer>
-        
+
         <!--Inicio da tela de modais aqui ficaram armazenados temporariamtne todos os modais do contexto-->
         <!--CADASTRO DE ENTIDADES-->
         <div id="modal1" class="modal card blue-grey" style="max-height:   100% !important">
 
         </div>
-        <!--FINAL DO CONTEUDO DOS MODAI-->
-        
-        <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/vendors/jquery-3.2.1.min.js"></script>
+        <!--FINAL DO CONTEUDO DOS MODAL-->
+
+        <script type="text/javascript" src="layout/jquery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/js/materialize.min.js"></script>
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/vendors/chartjs/chart.min.js"></script>
@@ -725,14 +787,18 @@
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/js/plugins.js"></script>
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/js/scripts/dashboard-analytics.js"></script>
         <script type="text/javascript" src="https://pixinvent.com/materialize-material-design-admin-template/js/custom-script.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
         <script>
 
                                 if (document.getElementById('#teste')) {
                                     alert('existe');
                                 }
-                                function teste() {
-                                    $.post('http://localhost:8080/Sistema_gestao_escolar_v.2/ESTATICO/cad_escolas.html', function (html) {
+                                function form_request(form) {
+                                    $.post('http://localhost:8080/Sistema_gestao_escolar_v.2/ESTATICO/' + form + '.html', function (html) {
                                         $('#modal1').html(html);
+                                    });
+                                    $(document).ready(function () {
+                                        $('select').material_select();
                                     });
                                 }
 
@@ -740,6 +806,93 @@
                                     $('.modal').modal();
                                 });
 
+        </script>
+        <script>
+            
+            var clients = [
+                {
+                    "i_alunos": 1,
+                    "nome": "Fabiano Gabardo Lemos",
+                    "dataNascimento": "nov 4, 1997",
+                    "sexo": "M",
+                    "nomeSocial": "Fabinho",
+                    "codigoInep": "123654",
+                    "i_enderecos": 0,
+                    "estadoCivil": "SOLTEIRO",
+                    "orientacaoSexual": "HETERO",
+                    "i_religioes": 0,
+                    "grauEscolaridade": "SUPCOMPLETO",
+                    "cpf": "10653479"
+                },
+                {
+                    "i_alunos": 1,
+                    "nome": "Mateus Gabardo Lemos",
+                    "dataNascimento": "nov 5, 1997",
+                    "sexo": "M",
+                    "nomeSocial": "Teteu",
+                    "codigoInep": "89765",
+                    "i_enderecos": 0,
+                    "estadoCivil": "SOLTEIRO",
+                    "orientacaoSexual": "HETERO",
+                    "i_religioes": 0,
+                    "grauEscolaridade": "SUPCOMPLETO",
+                    "cpf": "12345678"
+                },
+                {
+                    "i_alunos": 1,
+                    "nome": "Fernando Schuch",
+                    "dataNascimento": "jan 6, 1997",
+                    "sexo": "M",
+                    "nomeSocial": "FEFE",
+                    "codigoInep": "65465",
+                    "i_enderecos": 0,
+                    "estadoCivil": "CASADO",
+                    "orientacaoSexual": "HETERO",
+                    "i_religioes": 0,
+                    "grauEscolaridade": "SUPCOMPLETO",
+                    "cpf": "65498721"
+                }
+            ];
+
+            var countries = [
+                {Name: "", Id: 0},
+                {Name: "United States", Id: 1},
+                {Name: "Canada", Id: 2},
+                {Name: "United Kingdom", Id: 3}
+
+            ];
+
+            $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
+
+                inserting: false,
+                editing: true,
+                sorting: true,
+                paging: true,
+
+                data: clients,
+
+                fields: [
+                    {name: "i_alunos", type: "text", width: 100},
+                    {name: "nome", type: "text", width: 100},
+                    {name: "dataNascimento", type: "text", width: 100},
+                    {name: "sexo", type: "text", width: 100},
+                    {name: "nomeSocial", type: "text", width: 100},
+                    {name: "codigoInep", type: "text", width: 100},
+                    {name: "i_enderecos", type: "text", width: 100},
+                    {name: "estadoCivil", type: "text", width: 100},
+                    {name: "orientacaoSexual", type: "text", width: 100},
+                    {name: "i_religioes", type: "text", width: 100},
+                    {name: "grauEscolaridade", type: "text", width: 100},
+                    {name: "cpf", type: "text", width: 100}
+                ]
+            });
+
+            $(".config-panel input[type=checkbox]").on("click", function () {
+                var $cb = $(this);
+                $("#jsGrid").jsGrid("option", $cb.attr("id"), $cb.is(":checked"));
+            });
         </script>
     </body>
 </html>
